@@ -14,7 +14,7 @@ function Home() {
       <NavBar />
       <SobreMiHero />
       <MentoringService />
-      <ConsultancyService />
+      {/* <ConsultancyService /> */}
       <Referencias />
       <Footer />
     </BlogLayout>

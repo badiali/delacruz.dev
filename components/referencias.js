@@ -149,7 +149,7 @@ const styles = css`
 
   .testimonials {
     padding-bottom: 9rem;
-    padding-top: 9rem;
+    padding-top: 20rem;
   }
 
   a {

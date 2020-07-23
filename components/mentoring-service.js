@@ -1,21 +1,21 @@
 import css from "styled-jsx/css";
 import colors from "./colors";
 import Button from "./button";
+import TextBox from "./text-box";
 
 function MentoringService() {
   return (
     <>
       <section id="mentoring" className="mentoring">
-        <div className="container has-text-centered">
-          <h1 className="title">Mentoring profesional</h1>
-          <h2 className="subtitle">
-            Para programadores y programadoras que quieran dar un salto en su carrera desarrollando software.
-          </h2>
-
-          <div className="cta">
-            <Button outlined huge darkbg>
-              Saber más
-            </Button>
+        <div className="diagonal-bar"></div>
+        <div className="container">
+          <div className="row">
+            <TextBox />
+            <object
+              type="image/svg+xml"
+              data="https://www.swyg.com/static/images/undraw_super_woman_dv0y.svg"
+              role="presentation"
+            ></object>
           </div>
         </div>
       </section>
@@ -26,20 +26,35 @@ function MentoringService() {
 
 const styles = css`
   .mentoring {
-    background-color: ${colors.backgroundMentoring};
+    /* background-color: ${colors.backgroundMentoring}; */
     padding-bottom: 9rem;
     padding-top: 9rem;
     color: ${colors.white};
+    position: relative;
   }
 
-  .has-text-centered {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  .row {
+    margin-left: 50px;
+    width: 40%;
+    position: absolute;
+    top: -100px;
   }
 
-  .cta {
-    margin-top: 2rem;
+  object {
+    position: absolute;
+    left: 50vw;
+    top: 0;
+  }
+
+  .diagonal-bar {
+    background-image: linear-gradient(142deg, #41e0fd, #2cbfcf 53%, #29aac0);
+    height: 440px;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%) rotate(-6deg);
+    width: 200%;
+    z-index: -2;
   }
 `;
 

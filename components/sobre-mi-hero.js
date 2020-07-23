@@ -1,6 +1,7 @@
 import css from "styled-jsx/css";
 import Button from "./button";
 import colors from "./colors";
+import WaitList from "./waitlist";
 
 function SobreMiHero() {
   return (
@@ -29,14 +30,15 @@ images/mypic/4a8fb4e3-1196-4672-b574-70e8e9dddebf_m8jdid_c_scale,w_732.jpg 732w"
                 <strong className="is-text-primary">mentor</strong> para ayudarte a dar un{" "}
                 <strong>salto en tu carrera</strong>.
               </h2>
-              <div className="buttons">
+              {/* <div className="buttons">
                 <Button className="button" big outlined>
                   Sobre mí
                 </Button>
                 <Button className="button" big>
                   Mentoring
                 </Button>
-              </div>
+              </div> */}
+              <WaitList />
             </div>
           </div>
         </div>
