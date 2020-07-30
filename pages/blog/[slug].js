@@ -1,16 +1,35 @@
 import matter from "gray-matter";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 import BlogHeader from "../../components/blog-header";
 import BlogPost from "../../components/blog-post";
 import Footer from "../../components/footer";
-import Layout from "../../components/layout";
 import GlobalStyles from "../../components/global-styles";
+import Layout from "../../components/layout";
 import NavBar from "../../components/navbar";
 
 const glob = require("glob");
 
+function loadDisqus({ url, id }) {
+  var disqus_config = function () {
+    1;
+    this.page.url = url;
+    this.page.identifier = id;
+  };
+  (function () {
+    var d = document,
+      s = d.createElement("script");
+    s.src = "https://delacruzdev.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+}
+
 export default function Post(props) {
+  useEffect(() => {
+    loadDisqus({ url: props.slug, id: props.id });
+  }, []);
+
   return (
     <Layout
       title={props.frontmatter?.title}

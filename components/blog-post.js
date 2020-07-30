@@ -7,26 +7,28 @@ const BlogPost = ({ frontmatter, markdownBody }) => {
   if (!frontmatter) return null;
 
   return (
-    <article className="container">
-      <img
-        className="frontImage"
-        sizes="(max-width: 1400px) 100vw, 1400px"
-        srcSet={frontmatter.frontImageSrcSet}
-        src={frontmatter.frontImageSrc}
-        alt={frontmatter.title}
-      />
-      <div className="content">
-        <BlogDate date={frontmatter.date} />
-        <h1 className="title">{frontmatter.title}</h1>
-        <ReactMarkdown
-          source={markdownBody}
-          escapeHtml={false}
-          skipHtml={false}
-          renderers={{ code: CodeBlock }}
+    <>
+      <article className="container">
+        <img
+          className="frontImage"
+          sizes="(max-width: 1400px) 100vw, 1400px"
+          srcSet={frontmatter.frontImageSrcSet}
+          src={frontmatter.frontImageSrc}
+          alt={frontmatter.title}
         />
-      </div>
+        <div className="content">
+          <BlogDate date={frontmatter.date} />
+          <h1 className="title">{frontmatter.title}</h1>
+          <ReactMarkdown source={markdownBody} escapeHtml={false} skipHtml={false} renderers={{ code: CodeBlock }} />
+        </div>
+        <div id="disqus_thread"></div>
+        <noscript>
+          Please enable JavaScript to view the{" "}
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </article>
       <style jsx>{styles}</style>
-    </article>
+    </>
   );
 };
 
